@@ -1,7 +1,6 @@
 
 import 'package:agro_farm/Custom_Widgets/progressdialog.dart';
 import 'package:agro_farm/Screens/navviewpage.dart';
-import 'package:agro_farm/style/theme.dart';
 import 'package:agro_farm/utils/bubble_indication_painter.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -65,6 +64,7 @@ class _LoginPageState extends State<LoginPage>
   Widget build(BuildContext context) {
     return SafeArea(
           child: new Scaffold(
+          resizeToAvoidBottomPadding: false,
         key: _scaffoldKey,
         
         body: NotificationListener<OverscrollIndicatorNotification>(
@@ -96,11 +96,9 @@ class _LoginPageState extends State<LoginPage>
                                   decoration: BoxDecoration(),
                                   height: 150,
                                   width: 150,
-                                  child: Hero(
-                                    tag: "farmer",
                                      child: CircleAvatar(
                                       backgroundImage: AssetImage("images/farmer.jpg")),
-                                  ))),
+                                  )),
                       
                         
                           Padding(
@@ -339,15 +337,7 @@ class _LoginPageState extends State<LoginPage>
                     //   blurRadius: 20.0,
                     // ),
                   ],
-                  gradient: new LinearGradient(
-                      colors: [
-                        Colours.loginGradientEnd,
-                        Colours.loginGradientStart
-                      ],
-                      begin: const FractionalOffset(0.2, 0.2),
-                      end: const FractionalOffset(1.0, 1.0),
-                      stops: [0.0, 1.0],
-                      tileMode: TileMode.clamp),
+                  
                 ),
                 child: MaterialButton(
                     // highlightColor: Colors.transparent,
@@ -442,45 +432,7 @@ class _LoginPageState extends State<LoginPage>
               ],
             ),
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Padding(
-                padding: EdgeInsets.only(top: 10.0, right: 40.0),
-                child: GestureDetector(
-                  onTap: () => showInSnackBar("Facebook button pressed"),
-                  child: Container(
-                    padding: const EdgeInsets.all(15.0),
-                    decoration: new BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: Colors.grey.shade300,
-                    ),
-                    child: new Icon(
-                      FontAwesomeIcons.facebookF,
-                      color: Color(0xFF0084ff),
-                    ),
-                  ),
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.only(top: 10.0),
-                child: GestureDetector(
-                  onTap: () => showInSnackBar("Google button pressed"),
-                  child: Container(
-                    padding: const EdgeInsets.all(15.0),
-                    decoration: new BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: Colors.grey.shade300,
-                    ),
-                    child: new Icon(
-                      FontAwesomeIcons.google,
-                      color: Color(0xFF0084ff),
-                    ),
-                  ),
-                ),
-              ),
-            ],
-          ),
+    
         ],
       ),
     );
@@ -749,15 +701,7 @@ class _LoginPageState extends State<LoginPage>
                     //   blurRadius: 20.0,
                     // ),
                   ],
-                  gradient: new LinearGradient(
-                      colors: [
-                        Colours.loginGradientEnd,
-                        Colours.loginGradientStart
-                      ],
-                      begin: const FractionalOffset(0.2, 0.2),
-                      end: const FractionalOffset(1.0, 1.0),
-                      stops: [0.0, 1.0],
-                      tileMode: TileMode.clamp),
+                 
                 ),
                 child: MaterialButton(
                     color: Colors.green,
